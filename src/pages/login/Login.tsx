@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/forms/Input/Input";
 import Button from "../../components/Button/Button";
 
-const LoginForm = () => {
+const Login = () => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const isDebug = process.env.REACT_APP_DEBUG === 'true';
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,10 +20,16 @@ const LoginForm = () => {
   const handleValue = () => {
     console.log("dfh");
   };
+  useEffect(()=> {
+    console.log(process.env)
+  },[])
   return (
-    <div className="login-page">
-    <div className="login-box">
-      <h2 className="login-title">Login</h2>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+      <h2 className="text-2xl font-semibold mb-4">Login</h2>
+      {JSON.stringify(isDebug)}
+      {JSON.stringify(apiUrl)}
+      <div className="space-y-4">
       <form onSubmit={handleSubmit}>
         <div>
           <Input
@@ -48,8 +56,11 @@ const LoginForm = () => {
         </div>
       </form>
     </div>
+    </div>
   </div>
   );
 };
 
-export default LoginForm;
+export default Login;
+
+

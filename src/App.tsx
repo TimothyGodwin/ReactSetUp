@@ -12,14 +12,13 @@ function App() {
 
   return (
     <div className="App">
-      {/* <BrowserRouter>
 
+      <BrowserRouter>
       <Header />
       <AppRouter />
       <Footer /> 
-      </BrowserRouter> */}
-      <Home />
-    
+      </BrowserRouter>
+      
     </div>
   );
 }

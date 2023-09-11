@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({
       value={value}
       onChange={onChange}
       required={required}
-      className={styles.input} // Use the generated class name
+      className={styles.input + ` w-full border rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500`} 
     />
   );
 };
